@@ -1,0 +1,6 @@
+node_modules
+uploads
+/winston
+.env
+*.env
+firebaseSDK.json

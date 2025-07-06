@@ -1,0 +1,10 @@
+import express from 'express';
+import auth from '../../middlewares/auth';
+import { USER_ROLES } from '../../../enums/user';
+import { WalletController } from './wallet.controller';
+import validateRequest from '../../middlewares/validateRequest';
+import { WalletValidation } from './wallet.validation';
+const router = express.Router();
+router.get('/', auth(USER_ROLES.SHOPPER), WalletController.getWalletBalance);
+router.post('/withdraw',validateRequest(WalletValidation.createWithdrawBalancemountZodSchema),auth(USER_ROLES.SHOPPER), WalletController.withdrawBalancemount);
+export const WalletRoutes = router;
