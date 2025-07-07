@@ -19,4 +19,18 @@ const createChat = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const Chat2Controller = { createChat };
+// ---------- get chats ----------
+const getChats = catchAsync(async(req: Request, res: Response) => {
+  const user = req.user;
+  const searchTerm = req.query.searchTerm;
+  const result = await Chat2Services.getChat2FromDB(user, searchTerm as string | null | undefined);
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "Chats fetched successfully",
+    data: result,
+  })
+})
+
+export const Chat2Controller = { createChat, getChats };

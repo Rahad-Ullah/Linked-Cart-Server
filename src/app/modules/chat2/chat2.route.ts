@@ -7,4 +7,6 @@ const router = express.Router();
 
 router.post("/:id", auth(USER_ROLES.CUSTOMER), Chat2Controller.createChat);
 
+router.get("/", auth(USER_ROLES.CUSTOMER), Chat2Controller.getChats);
+
 export const Chat2Routes = router;
