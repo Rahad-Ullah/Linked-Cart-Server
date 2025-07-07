@@ -6,12 +6,7 @@ import validateRequest from "../../middlewares/validateRequest";
 import { chatValidation } from "./chat.validation";
 const router = express.Router();
 
-router.post(
-  "/:id",
-  validateRequest(chatValidation.createChatSchema),
-  auth(USER_ROLES.CUSTOMER),
-  ChatController.createChat
-);
+router.post("/:id", auth(USER_ROLES.CUSTOMER), ChatController.createChat);
 router.get(
   '/',
   auth(USER_ROLES.CUSTOMER),

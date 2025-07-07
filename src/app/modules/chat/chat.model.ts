@@ -11,7 +11,7 @@ const chatSchema = new Schema<IChat, ChatModel>(
     ],
     isDeleted: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
   {

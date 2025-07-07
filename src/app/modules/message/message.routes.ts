@@ -9,7 +9,7 @@ const router = express.Router();
 router.post(
   '/',
   fileUploadHandler(),
-  auth(USER_ROLES.CUSTOMER, USER_ROLES.SHOPPER,USER_ROLES.SHOP),
+  auth(USER_ROLES.CUSTOMER, USER_ROLES.SHOPPER, USER_ROLES.SHOP),
   MessageController.sendMessage
 );
 router.get(
