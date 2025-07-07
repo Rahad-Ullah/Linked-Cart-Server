@@ -19,34 +19,32 @@ let server: any;
 
 async function main() {
     try {
+      // create super admin
+      seedSuperAdmin();
 
-        // create super admin
-        seedSuperAdmin();
+      mongoose.connect(config.database_url as string);
+      logger.info(colors.green("🚀 Database connected successfully"));
 
+      const port =
+        typeof config.port === "number" ? config.port : Number(config.port);
 
-        mongoose.connect(config.database_url as string);
-        logger.info(colors.green('🚀 Database connected successfully'));
-  
-        const port = typeof config.port === 'number' ? config.port : Number(config.port);
-  
-        server = app.listen(port, config.ip_address as string, () => {
-            logger.info(colors.yellow(`♻️  Application listening on port:${config.port}`));
-        });
-  
-        //socket
-        const io = new Server(server, {
-            pingTimeout: 60000,
-            cors: {
-                origin: '*'
-            }
-        });
+      server = app.listen(port, () => {
+        logger.info(colors.yellow(`App is listening on port: ${port}`));
+      });
 
-        socketHelper.socket(io);
-        //@ts-ignore
-        global.io = io;
+      //socket
+      const io = new Server(server, {
+        pingTimeout: 60000,
+        cors: {
+          origin: "*",
+        },
+      });
 
+      socketHelper.socket(io);
+      //@ts-ignore
+      global.io = io;
     } catch (error) {
-        errorLogger.error(colors.red('🤢 Failed to connect Database'));
+      errorLogger.error(colors.red("🤢 Failed to connect Database"));
     }
   
     //handle unhandledRejection
