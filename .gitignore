@@ -4,3 +4,5 @@ uploads
 .env
 *.env
 firebaseSDK.json
+yarn.lock
+package-lock.json

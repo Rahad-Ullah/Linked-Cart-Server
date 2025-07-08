@@ -46,7 +46,11 @@ app.use(express.static('assets'));
 app.use('/api/v1', router);
 
 app.get("/", (req: Request, res: Response) => {
-    res.send("Hey Backend, How can I assist you ");
+    res.send(`
+      <h1 style="font-family:sans-serif;font-size:2rem;text-align:center;margin-top:50px;">
+         Beep! Beep! Linked Cart App Backend is dancing 😊
+        </h1>
+    `);
 })
 
 //global error handle
