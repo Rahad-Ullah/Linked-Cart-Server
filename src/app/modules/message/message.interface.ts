@@ -1,11 +1,11 @@
-import { Model, Types } from 'mongoose';
+import { Model, Types } from "mongoose";
 
 export type IMessage = {
   chatId: Types.ObjectId;
   sender: Types.ObjectId;
   text?: string;
   image?: string;
-  seenBy ?: Types.ObjectId[];
+  seenBy?: Types.ObjectId[];
   seen?: boolean;
 };
 

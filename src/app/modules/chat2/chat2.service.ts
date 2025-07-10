@@ -1,5 +1,5 @@
 import { JwtPayload } from "jsonwebtoken";
-import { Chat2Model, IChat2 } from "./chat2.interface";
+import { IChat2 } from "./chat2.interface";
 import { Chat2 } from "./chat2.model";
 import { IMessage } from "../message/message.interface";
 import { Message } from "../message/message.model";
