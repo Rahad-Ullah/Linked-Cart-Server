@@ -2,11 +2,10 @@ import { z } from "zod";
 
 const createMessageSchema = z.object({
   body: z.object({
-    chat: z.string().nonempty({ message: "Chat is required" }),
-    sender: z.string().nonempty({ message: "Sender is required" }),
+    chat: z.string().min(1, { message: "Chat is required" }),
     text: z.string().optional(),
-    image: z.string().optional(),
+    image: z.instanceof(File).optional(),
   }),
 });
 
-export const Message2Validations = {};
+export const Message2Validations = { createMessageSchema };

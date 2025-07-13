@@ -17,6 +17,7 @@ import { ReviewRoutes } from '../modules/review/review.routes';
 import { DashboardRoutes } from '../modules/dashboard/dashboard.route';
 import { BookmarkRoutes } from '../modules/bookmark/bookmark.routes';
 import { Chat2Routes } from "../modules/chat2/chat2.route";
+import { Message2Routes } from "../modules/message2/message2.route";
 const router = express.Router();
 
 const apiRoutes = [
@@ -32,6 +33,7 @@ const apiRoutes = [
   { path: "/chat", route: ChatRoutes },
   { path: "/chat2", route: Chat2Routes },
   { path: "/message", route: MessageRoutes },
+  { path: "/message2", route: Message2Routes },
   { path: "/notification", route: NotificationRoutes },
   { path: "/offer", route: OfferRoutes },
   { path: "/wallet", route: WalletRoutes },
